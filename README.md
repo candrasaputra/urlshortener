@@ -1,5 +1,8 @@
 # urlshortener
 
+Heroku link:
+https://pendekinurl.herokuapp.com/
+
 Don't forget to edit config!
 
 | Model     | Name to use in Codes |
