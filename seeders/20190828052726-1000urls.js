@@ -1,23 +1,21 @@
 'use strict';
 
+const faker = require('faker');
+const { shortLinkGenerator } = require('../helpers');
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Urls', [
-      {
-        "shortened": "gogle",
-        "full": "https://www.google.com",
-        "createdBy": 1,
+    const arr = []
+    for (let i = 0; i < 1000; i++) {
+      arr.push({
+        "shortened": shortLinkGenerator(4),
+        "full": faker.internet.url(),
+        "createdBy": Math.floor(Math.random() * 1000) + 1,
         "createdAt": new Date(),
         "updatedAt": new Date()
-      },
-      {
-        "shortened": "yaho1",
-        "full": "https://www.yahoo.com",
-        "createdBy": 2,
-        "createdAt": new Date(),
-        "updatedAt": new Date()
-      }
-    ], {})
+      })
+    }
+    return queryInterface.bulkInsert('Urls', arr, {})
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
