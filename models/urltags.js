@@ -1,11 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const UrlTags = sequelize.define('UrlTags', {
+  const Model = sequelize.Sequelize.Model
+
+  class UrlTags extends Model { }
+
+  UrlTags.init({
     UrlId: DataTypes.INTEGER,
     TagsId: DataTypes.INTEGER,
     createdBy: DataTypes.STRING
-  }, {});
-  UrlTags.associate = function(models) {
+  }, { sequelize });
+  UrlTags.associate = function (models) {
     // associations can be defined here
   };
   return UrlTags;

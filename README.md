@@ -1,6 +1,6 @@
 # urlshortener
 
-Heroku link:
+## Heroku link:
 https://pendekinurl.herokuapp.com/
 
 Don't forget to edit config!
@@ -12,11 +12,11 @@ Don't forget to edit config!
 | Tags      | Tag                  |
 | Histories | History              |
 
-Steps TO DO:
+## Steps TO DO:
 
 - [ ] Halaman Depan 
 
-Checklist:
+## Checklist:
 
 - [ ] CRUD
 - [ ] Class & Instance
@@ -26,3 +26,6 @@ Checklist:
 - [ ] Session
 - [ ] MVP
 - [ ] Heroku
+
+## Schema:
+![alt](schema.png)
