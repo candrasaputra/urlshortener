@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     createdBy: DataTypes.STRING
   }, { sequelize });
   Url.associate = function (models) {
-    // associations can be defined here
+    Url.belongsToMany(models.Tag, { through: 'UrlTags', foreignKey: 'UrlId' });
   };
   return Url;
 };

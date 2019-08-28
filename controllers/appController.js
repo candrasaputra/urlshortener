@@ -1,8 +1,21 @@
+const { Url, Tag } = require('../models')
 const useragent = require('express-useragent');
 
 class appController {
     static index(req, res) {
-        res.render('app/index');
+        Url.findAll({
+            where: {
+                createdBy: 1
+            },
+            include: [{
+                model: Tag
+            }]
+        })
+            .then((urls) => {
+                res.render('app/index', { urls });
+            }).catch((err) => {
+                res.send(err)
+            });
     }
 
     static testUserAgent(req, res) {

@@ -115,10 +115,27 @@
 					<div class="row">
 						<div class="col-sm-4 grid-margin grid-margin-md-0 stretch-card">
 							<div class="card">
-								<span class="pt-3 pl-3 pb-3">7 total link</span>
-
+								<span class="pt-3 pl-3">7 total link</span>
 								<hr>
-								<div class="p-3 table-dark">
+
+								<% urls.forEach(el => {
+									let display = `<div class="p-3">
+														<div><strong>${el.updatedAt}</strong></div>
+														<div>${el.full}</div>
+														<div class="row justify-content-between">
+															<div class="col">
+																${el.shortened}
+															</div>
+															<div class="col" style=" text-align:right">
+																70 <i class="mdi mdi-chart-areaspline"></i>
+															</div>
+														</div>
+													</div>`;
+													
+										__append(display);
+								});%>
+
+								<div class="p-3">
 									<div><strong>25 Agust</strong></div>
 									<div>https://facebook.com</div>
 									<div class="row justify-content-between">
@@ -131,7 +148,7 @@
 									</div>
 								</div>
 
-								<div class="p-3">
+								<div class="p-3 table-dark">
 									<div><strong>25 Agust</strong></div>
 									<div>https://facebook.com</div>
 									<div class="row justify-content-between">

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     createdBy: DataTypes.STRING
   }, { sequelize });
   Tag.associate = function (models) {
-    // associations can be defined here
+    Tag.belongsToMany(models.Url, { through: 'UrlTags', foreignKey: 'TagId' });
   };
   return Tag;
 };

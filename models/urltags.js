@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes) => {
 
   UrlTags.init({
     UrlId: DataTypes.INTEGER,
-    TagsId: DataTypes.INTEGER,
+    TagId: DataTypes.INTEGER,
     createdBy: DataTypes.STRING
   }, { sequelize });
   UrlTags.associate = function (models) {
-    // associations can be defined here
+    UrlTags.belongsTo(models.Url)
   };
   return UrlTags;
 };
