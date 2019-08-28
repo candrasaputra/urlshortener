@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/headfront.ejs') %>
+
+</head>
+
+<body>
+    <%- include('../partials/navbarfront') %>
+
+    <div id="homepage-slider" class="st-slider" style="height: 100vh">
+        <div class="images">
+            <div class="images-inner">
+                <div class="image-slide">
+                    <div class="banner-w3pvt-1">
+                        <div class="overlay-w3ls">
+                            <img src="/frontend/background3.jpg" alt="background" srcset="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-hny-info" style="position: absolute; top: -200px">
+        <!-- Contact -->
+        <section class="about-info py-5 px-lg-5">
+            <div class="content-w3ls-inn px-lg-5">
+                <div class="container py-md-5 py-3">
+                    <div class="px-lg-5">
+                        <div class="contact-hny-form mt-lg-5 mt-3">
+                            <h3 class="title-hny mb-lg-5 mb-3">
+                                Register
+                            </h3>
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="email" style="color: white">Email</label>
+                                            <input type="email" name="email" id="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username" style="color: white">Username</label>
+                                            <input type="text" name="username" id="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" style="color: white">Password</label>
+                                            <input type="password" name="password" id="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mx-auto mt-3">
+                                        <button type="submit"
+                                            class="btn btn-default morebtn more black con-submit">Submit</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //Contact -->
+    </div>
+    <!-- //banner-hny-info -->
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { appRoute, FrontPageRoute } = require('./routes');
+const { appRoute, FrontPageRoute, UserRoute } = require('./routes');
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,5 +18,6 @@ app.get('/', (req, res) => {
 
 app.use('/home', FrontPageRoute);
 app.use('/app', appRoute);
+app.use('/user', UserRoute);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))

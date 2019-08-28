@@ -2,46 +2,12 @@
 <html lang="zxx">
 
 <head>
-    <title>Purl: URL Shortener</title>
-    <!-- Meta tag Keywords -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8" />
-    <meta name="keywords" content="URL Shortener" />
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-
-    </script>
-    <!-- //Meta tag Keywords -->
-    <!-- Custom-Files -->
-    <link rel="stylesheet" href="/frontend/css/bootstrap.css">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="/frontend/css/style.css" type="text/css" media="all" />
-    <!-- Style-CSS -->
-    <!-- font-awesome-icons -->
-    <link href="/frontend/css/font-awesome.css" rel="stylesheet">
-    <!-- //font-awesome-icons -->
+    <%- include('./partials/headfront.ejs') %>
 
 </head>
 
 <body>
-    <!-- home -->
-    <div id="home">
-        <!--/top-nav -->
-        <div class="top_w3pvt_main container">
-            <!--/header -->
-            <header class="nav_w3pvt text-center ">
-                <%- include('./partials/navbarfront')%>
-            </header>
-            <!--//header -->
-        </div>
-        <!-- //top-nav -->
-    </div>
+    <%- include('./partials/navbarfront')%>
 
     <div id="homepage-slider" class="st-slider" style="height: 100vh">
         <input type="radio" class="cs_anchor radio" name="slider" id="play1" checked />
@@ -85,8 +51,8 @@
             <h3>We Short URLs
                 <br>For You</h3>
             <div class="top-buttons mx-auto text-center mt-md-5 mt-3">
-                <a href="/sign-in" class="btn more mr-2">Sign In</a>
-                <a href="/register" class="btn">Join</a>
+                <a href="/user/sign-in" class="btn more mr-2">Sign In</a>
+                <a href="/user/register" class="btn">Join</a>
             </div>
             <div class="d-flex hny-stats-inf">
                 <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
