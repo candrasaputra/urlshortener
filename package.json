@@ -19,11 +19,8 @@
   "dependencies": {
     "ejs": "^2.6.2",
     "express": "^4.17.1",
-<<<<<<< HEAD
     "faker": "^4.1.0",
-=======
     "express-useragent": "^1.0.13",
->>>>>>> 8f97b3bda4b53a2d566cfff35a8a158c8fdc41b8
     "nodemon": "^1.19.1",
     "pg": "^7.12.1",
     "sequelize": "^5.16.0",
