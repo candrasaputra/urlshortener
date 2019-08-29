@@ -1,0 +1,28 @@
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper" style="width: 60%">
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Tags</h4>
+
+                            <% if (err) { %>
+                            <p class="alert alert-danger"><%= err %></p>
+                            <% } %>
+
+                            <form class="forms-sample" method="POST">
+                                <div class="form-group">
+                                    <label for="tagList">Edit Tag</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Split by commas"
+                                        name="tagName" value="<%= tag.tagName%>">
+                                </div>
+                                <button type="submit" class="btn btn-primary mr-2">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
