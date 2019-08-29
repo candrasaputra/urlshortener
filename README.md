@@ -50,12 +50,12 @@ Template
 
 ## Checklist:
 
-- [ ] CRUD
-- [ ] Class & Instance
-- [ ] Helper
-- [ ] Hooks
-- [ ] Middlewars
-- [ ] Session
+- [x] CRUD
+- [x] Class & Instance
+- [x] Helper
+- [x] Hooks
+- [x] Middlewars
+- [x] Session
 - [ ] MVP
 - [ ] Heroku
 

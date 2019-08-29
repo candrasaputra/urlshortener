@@ -1,5 +1,6 @@
-const { Url, Tag } = require('../models')
+const { Url, Tag, History } = require('../models')
 const useragent = require('express-useragent');
+const Sequelize = require("sequelize");
 
 class appController {
     static index(req, res) {
@@ -8,15 +9,14 @@ class appController {
                 createdBy: req.session.userId
             },
             order: [['createdAt', 'DESC']],
-            include: [{
-                model: Tag
-            }]
+            include: [Tag, History]
         })
             .then((urls) => {
                 let data = {
                     urls,
                     page: 'index',
-                    session: req.session
+                    session: req.session,
+                    selected: req.query.selected
                 }
 
                 res.render('app/template', data);

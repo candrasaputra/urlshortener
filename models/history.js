@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   History.init({
     browser: DataTypes.STRING,
     OS: DataTypes.STRING,
-    device: DataTypes.STRING
+    device: DataTypes.STRING,
+    UrlId: DataTypes.INTEGER
   }, { sequelize });
   History.associate = function (models) {
     // associations can be defined here
