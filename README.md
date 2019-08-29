@@ -14,7 +14,38 @@ Don't forget to edit config!
 
 ## Steps TO DO:
 
-- [ ] Halaman Depan 
+Template
+- [ ] Ladingpage
+  - [x] Count url
+  - [ ] Count user (selsai)
+  - [ ] Count click (selsai)
+  - [x] Design
+- [ ] User
+  - [x] Design registrasi
+  - [ ] Logic register (selsai)
+  - [ ] Design login (selsai)
+  - [ ] Logic login (selsai)
+  - [ ] Verifikasi email
+- [ ] URL
+  - [ ] Design dashboard URL
+  - [ ] List url
+  - [ ] Grafik url
+  - [ ] Total url
+  - [ ] Create url
+  - [ ] Edit url
+  - [ ] Delete url
+- [ ] Dashboard Grafik
+- [ ] Profile
+  - [ ] Design
+  - [ ] Update profile
+  - [ ] Upload foto (comot gravatar)
+- [ ] Seeder
+  - [x] URL
+  - [ ] User
+  - [ ] Tag
+  - [ ] UrlTags
+  - [ ] History
+- [ ] Connect telegram
 
 ## Checklist:
 
