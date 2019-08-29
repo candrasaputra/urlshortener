@@ -37,7 +37,11 @@ class UserController {
     }
 
     static login(req, res) {
-        res.render('./users/login', { err: req.query.err })
+        if (req.session.userId) {
+            res.redirect('/app')
+        } else {
+            res.render('./users/login', { err: req.query.err })
+        }
     }
 
     static doLogin(req, res) {

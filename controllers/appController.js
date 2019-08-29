@@ -7,6 +7,7 @@ class appController {
             where: {
                 createdBy: req.session.userId
             },
+            order: [['createdAt', 'DESC']],
             include: [{
                 model: Tag
             }]

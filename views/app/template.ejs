@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/kapella/js/mdi/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="/kapella/js/base/vendor.bundle.base.css">
 	<link rel="stylesheet" href="/kapella/css/style.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body>
@@ -79,6 +80,22 @@
 	</div>
 	<script src="/kapella/js/base/vendor.bundle.base.js"></script>
 	<script src="/kapella/js/template.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			$('#ds').DataTable({
+				"responsive": true,
+				"paging": false,
+				"scrollY": "500px",
+				"searching": false,
+				"lengthChange": false,
+				"aaSorting": []
+			});
+		});
+	</script>
 </body>
 
 </html>
