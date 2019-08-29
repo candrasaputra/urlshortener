@@ -19,28 +19,22 @@
 					<div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
 						<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 							<a class="navbar-brand brand-logo" href="/app">
-								<img src="/images/logo/logo.png" alt="logo" />
+								<img src="/images/logo/logo.png" alt="logo" style="width: 100px; height: 50px;" />
 							</a>
 							<a class="navbar-brand brand-logo-mini" href="/app">
-								<img src="/images/logo/logo.png" alt="logo" />
+								<img src="/images/logo/logo.png" alt="logo" style="width: 100px; height: 50px" />
 							</a>
 						</div>
-						<ul class="navbar-nav navbar-nav-right">
+						<ul class=" navbar-nav navbar-nav-right">
 							<li class="nav-item dropdown  d-lg-flex d-none">
-								<button type="button" class="btn btn-inverse-primary btn-sm">Dashboard </button>
+								<a href="/app">
+									<button type="button" class="btn btn-inverse-primary btn-sm">Dashboard </button>
+								</a>
 							</li>
 							<li class="nav-item dropdown d-lg-flex d-none">
-								<a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm"
-									id="nreportDropdown" href="/kapella/#" data-toggle="dropdown">
-									Create
-								</a>
-								<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-									aria-labelledby="nreportDropdown">
-									<a class="dropdown-item">
-										<i class="mdi mdi-library-plus text-primary"></i>
-										Bit Link
-									</a>
-								</div>
+								<a href="/app/create"><button class="btn btn-inverse-primary btn-sm"><span
+											class="mdi mdi-library-plus text-primary">Purl
+											Link</span></button></a>
 							</li>
 							<li class="nav-item dropdown d-lg-flex d-none">
 								<button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
