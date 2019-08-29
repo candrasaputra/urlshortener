@@ -1,11 +1,9 @@
 const express = require('express');
 const session = require('express-session');
-const { Url } = require('./models')
 const useragent = require('express-useragent');
 
 const app = express();
 const { appRoute, FrontPageRoute, UserRoute, dataRoute, HistoryRoute } = require('./routes');
-const { appRoute, FrontPageRoute, UserRoute } = require('./routes');
 
 const PORT = process.env.PORT || 3000;
 
@@ -45,7 +43,6 @@ app.get('/', (req, res) => {
 app.use('/home', FrontPageRoute);
 app.use('/app', appRoute);
 app.use('/user', UserRoute);
-app.use('/data', dataRoute);
 app.use('/l', HistoryRoute);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
