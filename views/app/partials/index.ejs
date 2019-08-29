@@ -88,7 +88,7 @@
                             <span class="text-success"><%= session.username.toUpperCase() %></span>
                             <hr>
                             <h2><strong><%= selectedDate.title%></strong></h2>
-                            <span><%= selectedDate.full%></span>
+                            <span><%= selectedDate.shortFull() %></span>
                             <div class="pt-2">
                                 <% selectedDate.Tags.forEach(el => { %>
                                 <button class="btn btn-sm btn-outline-primary p-1">Tag: <%= el.tagName %></button>
@@ -102,19 +102,17 @@
                             </div>
                             <hr>
 
-                            <script src="https://code.highcharts.com/highcharts.js"></script>
-                            <script src="https://code.highcharts.com/modules/data.js"></script>
-                            <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-
                             <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
                             <script>
+                                let data = "<%= formatGrafik(history) %>".split(',').map(el => el.split('|')).map(el => { return [el[0], Number(el[1])] });
+
                                 Highcharts.chart('container', {
                                     chart: {
                                         type: 'column'
                                     },
                                     title: {
-                                        text: 'Total klik perbulan selama tahun 2019'
+                                        text: 'Total klik tiap bulan'
                                     },
                                     xAxis: {
                                         type: 'category',
@@ -136,25 +134,12 @@
                                         enabled: false
                                     },
                                     tooltip: {
-                                        pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+                                        pointFormat: 'Total clik: <b>{point.y:.1f}</b>'
                                     },
                                     series: [{
-                                        name: 'Population',
+                                        name: 'Click',
                                         colorByPoint: true,
-                                        data: [
-                                            ['Jan', 24],
-                                            ['Feb', 20],
-                                            ['Mar', 14],
-                                            ['Apr', 13],
-                                            ['Mei', 13],
-                                            ['Jun', 12],
-                                            ['Jul', 12],
-                                            ['Agst', 12],
-                                            ['Sept', 12],
-                                            ['Okt', 11],
-                                            ['Nov', 11],
-                                            ['Des', 11]
-                                        ],
+                                        data: data,
                                         dataLabels: {
                                             enabled: true,
                                             rotation: -90,

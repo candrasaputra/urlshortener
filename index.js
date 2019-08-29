@@ -5,6 +5,7 @@ const useragent = require('express-useragent');
 
 const app = express();
 const { appRoute, FrontPageRoute, UserRoute, dataRoute, HistoryRoute } = require('./routes');
+const { appRoute, FrontPageRoute, UserRoute } = require('./routes');
 
 const PORT = process.env.PORT || 3000;
 
@@ -26,6 +27,9 @@ app.use(express.static('public'))
 
 const dataFormat = require('./helpers/dataFormat')
 app.locals.dataFormat = dataFormat
+
+const formatGrafik = require('./helpers/formatGrafik')
+app.locals.formatGrafik = formatGrafik
 
 // ------------------------------- //
 
