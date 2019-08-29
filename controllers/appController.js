@@ -5,14 +5,20 @@ class appController {
     static index(req, res) {
         Url.findAll({
             where: {
-                createdBy: 1
+                createdBy: req.session.userId
             },
             include: [{
                 model: Tag
             }]
         })
             .then((urls) => {
-                res.render('app/index', { urls });
+                let data = {
+                    urls,
+                    page: 'index',
+                    session: req.session
+                }
+
+                res.render('app/template', data);
             }).catch((err) => {
                 res.send(err)
             });

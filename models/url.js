@@ -4,7 +4,16 @@ const { shortLinkGenerator } = require('../helpers')
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
 
-  class Url extends Model { }
+  class Url extends Model {
+    get countHistory() {
+      sequelize.models.History.findOne({
+        where: {
+          UrlId: 1
+        }
+      });
+      return 10
+    }
+  }
 
   Url.init({
     shortened: {
