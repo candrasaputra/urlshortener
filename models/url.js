@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       });
       return 10
     }
+
+    shortTitle() {
+      return this.title.length > 30 ? this.title.substr(0, 30) + "..." : this.title;
+    }
+
   }
 
   Url.init({
@@ -64,6 +69,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   Url.associate = function (models) {
     Url.belongsToMany(models.Tag, { through: 'UrlTags', foreignKey: 'UrlId' });
+    Url.hasMany(models.History);
   };
   return Url;
 };

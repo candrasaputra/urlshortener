@@ -51,26 +51,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <%  %>
                                 <% urls.forEach(el => {
-                                    let data =
-                                    `<tr>
+                                    let sel = (selected == el.id) ? 'table-active' : '';
+                                    
+                                    let display =
+                                    `<tr class="${sel}" onclick="window.location.href = '/app?selected=${el.id}'">
                                         <td style="cursor: pointer;">
                                             <div>
                                                 <div><strong>${dataFormat(el.updatedAt)}</strong></div>
-                                                <div class="pt-2 pb-2">${el.full}</div>
+                                                <div class="pt-2 pb-2">${el.shortTitle()}</div>
                                                 <div class="row justify-content-between">
                                                     <div class="col">
-                                                        <a href="/l/${el.shortened}" style="text-decoration:none" target="_blank">${el.shortened}</a>
+                                                        <a href="/l/${el.shortened}" style="text-decoration:none"
+                                                            target="_blank">${el.shortened}</a>
                                                     </div>
                                                     <div class="col" style=" text-align:right">
-                                                        ${el.countHistory} <i class="mdi mdi-chart-areaspline"></i>
+                                                        ${el.Histories.length} <i class="mdi mdi-chart-areaspline"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>`
-                                    __append(data)
+                                __append(display)
                                 });%>
                             </tbody>
                         </table>
