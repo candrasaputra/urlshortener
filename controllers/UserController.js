@@ -51,7 +51,6 @@ class UserController {
                     req.session.userId = user.id
                     req.session.username = user.username
                     req.session.email = user.email
-                    console.log(req.session);
 
                     res.redirect('/app');
                 } else {
@@ -67,7 +66,7 @@ class UserController {
 
     static logout(req, res) {
         return req.session.destroy(function (err) {
-            res.send(err);
+            res.redirect('/user/sign-in')
         })
     }
 }

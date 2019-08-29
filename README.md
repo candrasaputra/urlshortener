@@ -15,14 +15,14 @@ Don't forget to edit config!
 ## Steps TO DO:
 
 Template
-- [ ] Ladingpage
+- [x] Ladingpage
   - [x] Count url
   - [x] Count user
   - [x] Count click
   - [x] Design
 - [ ] User
   - [x] Design registrasi
-  - [ ] Logic register (selsai)
+  - [x] Logic register
   - [x] Design login
   - [x] Logic login
   - [x] Logout
