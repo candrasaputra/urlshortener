@@ -19,7 +19,16 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    createdBy: DataTypes.STRING
+    createdBy: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notnull: {
+          args: true,
+          msg: "createdBy must not be null"
+        }
+      }
+    }
   }, { sequelize });
   Tag.associate = function (models) {
     Tag.belongsToMany(models.Url, { through: 'UrlTags', foreignKey: 'TagId' });

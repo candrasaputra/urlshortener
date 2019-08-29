@@ -6,8 +6,7 @@ module.exports = (sequelize, DataTypes) => {
 
   UrlTags.init({
     UrlId: DataTypes.INTEGER,
-    TagId: DataTypes.INTEGER,
-    createdBy: DataTypes.STRING
+    TagId: DataTypes.INTEGER
   }, { sequelize });
   UrlTags.associate = function (models) {
     UrlTags.belongsTo(models.Url)
