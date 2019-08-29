@@ -56,8 +56,8 @@ Template
 - [x] Hooks
 - [x] Middlewars
 - [x] Session
-- [ ] MVP
-- [ ] Heroku
+- [x] MVP
+- [x] Heroku
 
 ## Schema:
 ![alt](schema.png)
