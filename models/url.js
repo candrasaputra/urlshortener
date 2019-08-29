@@ -5,19 +5,13 @@ module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
 
   class Url extends Model {
-    get countHistory() {
-      sequelize.models.History.findOne({
-        where: {
-          UrlId: 1
-        }
-      });
-      return 10
-    }
-
     shortTitle() {
       return this.title.length > 30 ? this.title.substr(0, 30) + "..." : this.title;
     }
 
+    shortFull() {
+      return this.full.length > 100 ? this.full.substr(0, 100) + "..." : this.full;
+    }
   }
 
   Url.init({

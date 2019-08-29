@@ -23,6 +23,9 @@ app.use(express.static('public'))
 const dataFormat = require('./helpers/dataFormat')
 app.locals.dataFormat = dataFormat
 
+const formatGrafik = require('./helpers/formatGrafik')
+app.locals.formatGrafik = formatGrafik
+
 // ------------------------------- //
 
 app.use(function (req, res, next) {

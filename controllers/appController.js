@@ -21,6 +21,14 @@ class appController {
                 {
                     model: History
                 }]
+        }), History.findAll({
+            where: {
+                UrlId: selected
+            },
+            attributes: [
+                [Sequelize.fn('date_trunc', 'month', Sequelize.col('createdAt')), 'date'],
+                [Sequelize.fn('count', Sequelize.col('id')), 'total']],
+            group: [Sequelize.fn('date_trunc', 'month', Sequelize.col('createdAt'))]
         })]
 
         Promise.all(promises)
@@ -31,10 +39,8 @@ class appController {
                     page: 'index',
                     session: req.session,
                     selected: req.query.selected,
-                    selectedDate: result[1]
-                }
-                if (result[1] != null) {
-                    console.log(result[1].Histories);
+                    selectedDate: result[1],
+                    history: result[2]
                 }
                 res.render('app/template', data);
             }).catch((err) => {
