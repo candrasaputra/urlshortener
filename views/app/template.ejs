@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 </head>
 
+
 <body>
 	<div class="container-scroller">
 		<div class="horizontal-menu">
@@ -49,7 +50,8 @@
 									id="profileDropdown">
 									<span class="nav-profile-name"><%= session.username %></span>
 									<span class="online-status"></span>
-									<img src="/images/user/default.jpg" alt="profile" />
+									<img src="https://www.gravatar.com/avatar/<%=generateMD5(session.email)%>"
+										alt="profile" />
 								</a>
 								<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
 									aria-labelledby="profileDropdown">
