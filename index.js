@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }))
 
+app.locals.generateMD5 = require('./helpers/md5hash')
+
 app.use(session({
     secret: 'r@h@s1@l!@hh3hsah3h3',
     resave: false,
