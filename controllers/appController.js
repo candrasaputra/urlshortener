@@ -4,21 +4,38 @@ const Sequelize = require("sequelize");
 
 class appController {
     static index(req, res) {
-        Url.findAll({
+        let selected = (req.query.selected) ? req.query.selected : null;
+
+        let promises = [Url.findAll({
             where: {
                 createdBy: req.session.userId
             },
             order: [['createdAt', 'DESC']],
-            include: [Tag, History]
-        })
-            .then((urls) => {
+            include: [History]
+        }), Url.findOne({
+            where: {
+                id: selected
+            },
+            include: [
+                { model: Tag },
+                {
+                    model: History
+                }]
+        })]
+
+        Promise.all(promises)
+            .then((result) => {
+
                 let data = {
-                    urls,
+                    urls: result[0],
                     page: 'index',
                     session: req.session,
-                    selected: req.query.selected
+                    selected: req.query.selected,
+                    selectedDate: result[1]
                 }
-
+                if (result[1] != null) {
+                    console.log(result[1].Histories);
+                }
                 res.render('app/template', data);
             }).catch((err) => {
                 res.send(err)
