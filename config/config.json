@@ -1,0 +1,16 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "postgres",
+        "database": "urlshortener",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "wqhybgaszxljnt",
+        "password": "73dadceeca99fa5d5ef838766bbafad877485c88f9c906fa424700e7586a8be1",
+        "database": "d6hinal87i4ttu",
+        "host": "ec2-23-21-156-171.compute-1.amazonaws.com",
+        "dialect": "postgres"
+    }
+}

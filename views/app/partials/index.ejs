@@ -1,0 +1,180 @@
+<style>
+    .pointer {
+        cursor: pointer;
+    }
+</style>
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-sm-6 mb-4 mb-xl-0">
+                    <div class="d-lg-flex align-items-center">
+                        <div>
+                            <h3 class="text-dark font-weight-bold mb-2">Hi, welcome back!</h3>
+                            <h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
+                        </div>
+                        <div class="ml-lg-5 d-lg-flex d-none">
+                            <button type="button" class="btn bg-white btn-icon">
+                                <i class="mdi mdi-view-grid text-success"></i>
+                            </button>
+                            <button type="button" class="btn bg-white btn-icon ml-2">
+                                <i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="d-flex align-items-center justify-content-md-end">
+                        <div class="pr-1 mb-3 mb-xl-0">
+                            <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
+                                Feedback
+                                <i class="mdi mdi-message-outline btn-icon-append"></i>
+                            </button>
+                        </div>
+                        <div class="pr-1 mb-3 mb-xl-0">
+                            <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
+                                Help
+                                <i class="mdi mdi-help-circle-outline btn-icon-append"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 grid-margin grid-margin-md-0 stretch-card">
+                    <div class="card">
+                        <table class="table table-hover" id="ds">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">7 total link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%  %>
+                                <% urls.forEach(el => {
+                                    let sel = (selected == el.id) ? 'table-active' : '';
+                                    
+                                    let display =
+                                    `<tr class="${sel}" onclick="window.location.href = '/app?selected=${el.id}'">
+                                        <td style="cursor: pointer;">
+                                            <div>
+                                                <div><strong>${dataFormat(el.updatedAt)}</strong></div>
+                                                <div class="pt-2 pb-2">${el.shortTitle()}</div>
+                                                <div class="row justify-content-between">
+                                                    <div class="col">
+                                                        <a href="/l/${el.shortened}" style="text-decoration:none"
+                                                            target="_blank">pu.rl/l/${el.shortened}</a>
+                                                    </div>
+                                                    <div class="col" style=" text-align:right">
+                                                        ${el.Histories.length} <i class="mdi mdi-chart-areaspline"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>`
+                                __append(display)
+                                });%>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="col-sm-8 grid-margin grid-margin-md-0 stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <% if(selectedDate) { %>
+                            <span><%= dataFormat(selectedDate.updatedAt).toUpperCase() %></span> |
+                            <span class="text-success"><%= session.username.toUpperCase() %></span>
+                            <hr>
+                            <h2><strong><%= selectedDate.title%></strong></h2>
+                            <span><%= selectedDate.shortFull() %></span>
+                            <div class="pt-2">
+                                <% selectedDate.Tags.forEach(el => { %>
+                                <button class="btn btn-sm btn-outline-primary p-1">Tag: <%= el.tagName %></button>
+                                <% }) %>
+                            </div>
+
+                            <div class="pt-3 pb-3">
+                                <a href="/l/<%= selectedDate.shortened%>" target="_blank">
+                                    pu.rl/l/<%= selectedDate.shortened%>
+                                </a>
+                            </div>
+                            <hr>
+
+                            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+                            <script>
+                                let data = "<%= formatGrafik(history) %>".split(',').map(el => el.split('|')).map(el => { return [el[0], Number(el[1])] });
+
+                                Highcharts.chart('container', {
+                                    chart: {
+                                        type: 'column'
+                                    },
+                                    title: {
+                                        text: 'Total klik tiap bulan'
+                                    },
+                                    xAxis: {
+                                        type: 'category',
+                                        labels: {
+                                            rotation: -45,
+                                            style: {
+                                                fontSize: '13px',
+                                                fontFamily: 'Verdana, sans-serif'
+                                            }
+                                        }
+                                    },
+                                    yAxis: {
+                                        min: 0,
+                                        title: {
+                                            text: 'Banyaknya klik'
+                                        }
+                                    },
+                                    legend: {
+                                        enabled: false
+                                    },
+                                    tooltip: {
+                                        pointFormat: 'Total clik: <b>{point.y:.1f}</b>'
+                                    },
+                                    series: [{
+                                        name: 'Click',
+                                        colorByPoint: true,
+                                        data: data,
+                                        dataLabels: {
+                                            enabled: true,
+                                            rotation: -90,
+                                            color: '#FFFFFF',
+                                            align: 'right',
+                                            format: '{point.y:.0f}', // one decimal
+                                            y: 10, // 10 pixels down from the top
+                                            style: {
+                                                fontSize: '13px',
+                                                fontFamily: 'Verdana, sans-serif'
+                                            }
+                                        }
+                                    }]
+                                });
+                            </script>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-wrap">
+                <div class="w-100 clearfix">
+                    <span class="d-block text-center text-sm-left d-sm-inline-block">
+                        P url. All rights reserved.
+                    </span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                        made with <i class="mdi mdi-heart-outline"></i>
+                    </span>
+                </div>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>

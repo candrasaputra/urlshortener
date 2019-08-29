@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,13 @@
   },
   "homepage": "https://github.com/candrasaputra/urlshortener#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "express-useragent": "^1.0.13",
+    "faker": "^4.1.0",
+    "md5": "^2.2.1",
     "nodemon": "^1.19.1",
     "pg": "^7.12.1",
     "sequelize": "^5.16.0",
