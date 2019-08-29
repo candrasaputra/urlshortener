@@ -3,7 +3,6 @@
 
 <head>
     <%- include('./partials/headfront.ejs') %>
-
 </head>
 
 <body>
@@ -57,19 +56,19 @@
             <div class="d-flex hny-stats-inf">
                 <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
                     <div class="d-md-flex justify-content-center">
-                        <h5 class="counter"><%= result ? result.length : 0 %></h5>
+                        <h5 class="counter"><%= url.dataValues.total %></h5>
                         <p class="para-w3pvt">URLs</p>
                     </div>
                 </div>
                 <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
                     <div class="d-md-flex justify-content-center">
-                        <h5 class="counter">1900</h5>
+                        <h5 class="counter"><%= user.dataValues.total %></h5>
                         <p class="para-w3pvt"> Users</p>
                     </div>
                 </div>
                 <div class="col-md-4 stats_w3pvt_counter_grid mt-3">
                     <div class="d-md-flex justify-content-center">
-                        <h5 class="counter">899</h5>
+                        <h5 class="counter"><%= history.dataValues.total %></h5>
                         <p class="para-w3pvt">Clicks</p>
                     </div>
                 </div>

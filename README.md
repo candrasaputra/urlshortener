@@ -39,6 +39,12 @@ Template
   - [ ] Design
   - [ ] Update profile
   - [ ] Upload foto (comot gravatar)
+- [ ] Seeder
+  - [x] URL
+  - [ ] User
+  - [ ] Tag
+  - [ ] UrlTags
+  - [ ] History
 - [ ] Connect telegram
 
 ## Checklist:
