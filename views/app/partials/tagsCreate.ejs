@@ -1,0 +1,67 @@
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper" style="width: 60%">
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Tags</h4>
+
+                            <% if (success) { %>
+                            <% if (success == "edit") {%>
+                            <p class="alert alert-success">Tag edited successfully</p>
+                            <% } %>
+                            <% if (success == "delete") {%>
+                            <p class="alert alert-warning">Tag deleted successfully</p>
+                            <% } %>
+                            <% } %>
+
+                            <% if (err) { %>
+                            <p class="alert alert-danger"><%= err %></p>
+                            <% } %>
+
+                            <form class="forms-sample" method="POST">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Create Tag</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Split by commas"
+                                        name="tagLists">
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary mr-2">Create</button>
+                            </form>
+
+                            <% if (tagList) { %>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Create Date</th>
+                                        <th scope="col">Update Date</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% tagList.forEach((el, i) => {%>
+                                    <tr>
+                                        <th scope="row"><%= i + 1%></th>
+                                        <td><%=el.tagName%></td>
+                                        <td><%=el.createdAt.toDateString()%></td>
+                                        <td><%=el.updatedAt.toDateString()%></td>
+                                        <td>
+                                            <a href="/app/tags/<%=el.id%>/edit">Edit</a> |
+                                            <a href="/app/tags/<%=el.id%>/delete">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <%})%>
+                                </tbody>
+                            </table>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

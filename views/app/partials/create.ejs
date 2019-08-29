@@ -6,22 +6,30 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">New Purl Link</h4>
+
                             <form class="forms-sample" method="POST">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Title</label>
-                                    <input type="text" class="form-control" id="title" placeholder="URL name">
+                                    <input type="text" class="form-control" id="title" placeholder="URL name"
+                                        name="title">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Source URL</label>
                                     <input type="url" class="form-control" id="full" placeholder="Insert URL here"
                                         name="full">
                                 </div>
+                                <% if (tagList) { %>
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">Tags</label>
-                                    <input type="url" class="form-control" id="tagName" placeholder="Split by commas"
-                                        name="tagName">
-                                </div>
-                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                    <label for="exampleInputUsername1">Select Tags *optional</label>
+                                    <select class="form-control" multiple name="tags">
+                                        <% for (const val of tagList) {%>
+                                        <option value="<%= val.id %>"><%= val.tagName %></option>
+                                        <%}%>
+                                        </select>
+                                    </div>
+                                      <%}%>
+
+                                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
                             </form>
                             <a href="/app"><button class="btn btn-light"
                                     style="position: absolute; left: 120px; bottom: 30px">Cancel</button></a>
