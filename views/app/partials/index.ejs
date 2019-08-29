@@ -1,3 +1,8 @@
+<style>
+    .pointer {
+        cursor: pointer;
+    }
+</style>
 <div class="container-fluid page-body-wrapper">
     <div class="main-panel">
         <div class="content-wrapper">
@@ -39,9 +44,36 @@
             <div class="row">
                 <div class="col-sm-4 grid-margin grid-margin-md-0 stretch-card">
                     <div class="card">
-                        <span class="pt-3 pl-3">7 total link</span>
-                        <hr>
+                        <table class="table table-hover" id="ds">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">7 total link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
+                                <% urls.forEach(el => {
+                                    let data =
+                                    `<tr>
+                                        <td style="cursor: pointer;">
+                                            <div>
+                                                <div><strong>${dataFormat(el.updatedAt)}</strong></div>
+                                                <div class="pt-2 pb-2">${el.full}</div>
+                                                <div class="row justify-content-between">
+                                                    <div class="col">
+                                                        ${el.shortened}
+                                                    </div>
+                                                    <div class="col" style=" text-align:right">
+                                                        ${el.countHistory} <i class="mdi mdi-chart-areaspline"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>`
+                                    __append(data)
+                                });%>
+                            </tbody>
+                        </table>
                         <% urls.forEach(el => {
                             let display = `<div class="p-3">
                                                 <div><strong>${dataFormat(el.updatedAt)}</strong></div>
@@ -102,7 +134,11 @@
                 <div class="col-sm-8 grid-margin grid-margin-md-0 stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            ss
+
+
+                            sss
+
+
                         </div>
                     </div>
                 </div>
