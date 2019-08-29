@@ -3,6 +3,7 @@ const useragent = require('express-useragent');
 
 class appController {
     static index(req, res) {
+        console.log(req.session);
         Url.findAll({
             where: {
                 createdBy: 1

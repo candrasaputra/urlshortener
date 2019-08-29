@@ -1,9 +1,5 @@
 const { User } = require('../models');
-
-function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
+const compare = require('../helpers/compare')
 
 class UserController {
     static register(req, res) {
@@ -40,12 +36,39 @@ class UserController {
         res.render('./users/registerStatus', { name })
     }
 
-    static loginPage(req, res) {
+    static login(req, res) {
         res.render('./users/login', { err: req.query.err })
     }
 
-    static login(req, res) {
+    static doLogin(req, res) {
+        const { email, password } = req.body
 
+        User.findOne({
+            where: { email }
+        }).then((user) => {
+            if (user) {
+                if (compare(password, user.password)) {
+                    req.session.userId = user.id
+                    req.session.username = user.username
+                    req.session.email = user.email
+                    console.log(req.session);
+
+                    res.redirect('/app');
+                } else {
+                    res.send('email / password salah');
+                }
+            } else {
+                res.send('email / password salah');
+            }
+        }).catch((err) => {
+            res.send(err);
+        });
+    }
+
+    static logout(req, res) {
+        return req.session.destroy(function (err) {
+            res.send(err);
+        })
     }
 }
 
