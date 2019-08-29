@@ -12,7 +12,7 @@ class UserController {
             .then((newUser) => {
                 res.redirect(`/user/successRegister?name=${newUser.username}`)
             }).catch((err) => {
-                res.redirect(`/user/register?err=${err}`)
+                res.redirect(`/user/register?err=${err.message}`)
             });
     }
 
@@ -22,7 +22,7 @@ class UserController {
             .then(() => {
                 res.redirect(`user/${id}/edit?success=1`)
             }).catch((err) => {
-                res.redirect(`/user/${id}/edit?err=${err}`)
+                res.redirect(`/user/${id}/edit?err=${err.message}`)
             });
     }
 

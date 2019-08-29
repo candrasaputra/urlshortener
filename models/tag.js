@@ -5,7 +5,20 @@ module.exports = (sequelize, DataTypes) => {
   class Tag extends Model { }
 
   Tag.init({
-    tagName: DataTypes.STRING,
+    tagName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          args: true,
+          msg: "tagName must not be null"
+        },
+        notEmpty: {
+          args: true,
+          msg: "tags must not be empty"
+        }
+      }
+    },
     createdBy: DataTypes.STRING
   }, { sequelize });
   Tag.associate = function (models) {
