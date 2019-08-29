@@ -36,10 +36,24 @@ module.exports = (sequelize, DataTypes) => {
     createdBy: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      valdiate: {
+      validate: {
         notNull: {
           args: true,
           msg: "createdBy cannot be null"
+        }
+      }
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          args: true,
+          msg: "title cannot be null"
+        },
+        notEmpty: {
+          args: true,
+          msg: "title cannot be empty"
         }
       }
     }
