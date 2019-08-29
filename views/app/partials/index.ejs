@@ -61,7 +61,7 @@
                                                 <div class="pt-2 pb-2">${el.full}</div>
                                                 <div class="row justify-content-between">
                                                     <div class="col">
-                                                        ${el.shortened}
+                                                        <a href="/l/${el.shortened}" style="text-decoration:none" target="_blank">${el.shortened}</a>
                                                     </div>
                                                     <div class="col" style=" text-align:right">
                                                         ${el.countHistory} <i class="mdi mdi-chart-areaspline"></i>
@@ -74,61 +74,7 @@
                                 });%>
                             </tbody>
                         </table>
-                        <% urls.forEach(el => {
-                            let display = `<div class="p-3">
-                                                <div><strong>${dataFormat(el.updatedAt)}</strong></div>
-                                                <div>${el.full}</div>
-                                                <div class="row justify-content-between">
-                                                    <div class="col">
-                                                        ${el.shortened}
-                                                    </div>
-                                                    <div class="col" style=" text-align:right">
-                                                        ${el.countHistory} <i class="mdi mdi-chart-areaspline"></i>
-                                                    </div>
-                                                </div>
-                                            </div>`;
-                                            
-                                __append(display);
-                        });%>
 
-                        <div class="p-3">
-                            <div><strong>25 Agust</strong></div>
-                            <div>https://facebook.com</div>
-                            <div class="row justify-content-between">
-                                <div class="col">
-                                    x2dsW
-                                </div>
-                                <div class="col" style=" text-align:right">
-                                    70 <i class="mdi mdi-chart-areaspline"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-3 table-dark">
-                            <div><strong>25 Agust</strong></div>
-                            <div>https://facebook.com</div>
-                            <div class="row justify-content-between">
-                                <div class="col">
-                                    x2dsW
-                                </div>
-                                <div class="col" style=" text-align:right">
-                                    70 <i class="mdi mdi-chart-areaspline"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-3">
-                            <div><strong>25 Agust</strong></div>
-                            <div>https://facebook.com</div>
-                            <div class="row justify-content-between">
-                                <div class="col">
-                                    x2dsW
-                                </div>
-                                <div class="col" style=" text-align:right">
-                                    70 <i class="mdi mdi-chart-areaspline"></i>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-sm-8 grid-margin grid-margin-md-0 stretch-card">

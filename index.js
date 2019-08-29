@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const { Url } = require('./models')
 
 const app = express();
 const { appRoute, FrontPageRoute, UserRoute } = require('./routes');
@@ -27,6 +28,20 @@ app.locals.dataFormat = dataFormat
 app.use(function (req, res, next) {
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     next();
+})
+
+app.get('/l/:link', (req, res) => {
+    Url.findOne({
+        where: {
+            shortened: req.params.link
+        }
+    })
+        .then((link) => {
+            res.writeHead(301,
+                { Location: link.full }
+            );
+            res.end();
+        });
 })
 
 app.get('/', (req, res) => {
