@@ -1,0 +1,127 @@
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-sm-6 mb-4 mb-xl-0">
+                    <div class="d-lg-flex align-items-center">
+                        <div>
+                            <h3 class="text-dark font-weight-bold mb-2">Hi, welcome back!</h3>
+                            <h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
+                        </div>
+                        <div class="ml-lg-5 d-lg-flex d-none">
+                            <button type="button" class="btn bg-white btn-icon">
+                                <i class="mdi mdi-view-grid text-success"></i>
+                            </button>
+                            <button type="button" class="btn bg-white btn-icon ml-2">
+                                <i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="d-flex align-items-center justify-content-md-end">
+                        <div class="pr-1 mb-3 mb-xl-0">
+                            <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
+                                Feedback
+                                <i class="mdi mdi-message-outline btn-icon-append"></i>
+                            </button>
+                        </div>
+                        <div class="pr-1 mb-3 mb-xl-0">
+                            <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
+                                Help
+                                <i class="mdi mdi-help-circle-outline btn-icon-append"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 grid-margin grid-margin-md-0 stretch-card">
+                    <div class="card">
+                        <span class="pt-3 pl-3">7 total link</span>
+                        <hr>
+
+                        <% urls.forEach(el => {
+                            let display = `<div class="p-3">
+                                                <div><strong>${dataFormat(el.updatedAt)}</strong></div>
+                                                <div>${el.full}</div>
+                                                <div class="row justify-content-between">
+                                                    <div class="col">
+                                                        ${el.shortened}
+                                                    </div>
+                                                    <div class="col" style=" text-align:right">
+                                                        ${el.countHistory} <i class="mdi mdi-chart-areaspline"></i>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                                            
+                                __append(display);
+                        });%>
+
+                        <div class="p-3">
+                            <div><strong>25 Agust</strong></div>
+                            <div>https://facebook.com</div>
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    x2dsW
+                                </div>
+                                <div class="col" style=" text-align:right">
+                                    70 <i class="mdi mdi-chart-areaspline"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 table-dark">
+                            <div><strong>25 Agust</strong></div>
+                            <div>https://facebook.com</div>
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    x2dsW
+                                </div>
+                                <div class="col" style=" text-align:right">
+                                    70 <i class="mdi mdi-chart-areaspline"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3">
+                            <div><strong>25 Agust</strong></div>
+                            <div>https://facebook.com</div>
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    x2dsW
+                                </div>
+                                <div class="col" style=" text-align:right">
+                                    70 <i class="mdi mdi-chart-areaspline"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 grid-margin grid-margin-md-0 stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            ss
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-wrap">
+                <div class="w-100 clearfix">
+                    <span class="d-block text-center text-sm-left d-sm-inline-block">
+                        P url. All rights reserved.
+                    </span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                        made with <i class="mdi mdi-heart-outline"></i>
+                    </span>
+                </div>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>

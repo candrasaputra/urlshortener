@@ -6,7 +6,6 @@ const { appRoute, FrontPageRoute, UserRoute } = require('./routes');
 
 const PORT = process.env.PORT || 3000;
 
-
 app.use(express.urlencoded({ extended: true }))
 
 app.use(session({
@@ -20,6 +19,10 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'))
 
+const dataFormat = require('./helpers/dataFormat')
+app.locals.dataFormat = dataFormat
+
+// ------------------------------- //
 
 app.get('/', (req, res) => {
     res.redirect('/home')
