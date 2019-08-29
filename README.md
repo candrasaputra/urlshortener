@@ -17,14 +17,14 @@ Don't forget to edit config!
 Template
 - [ ] Ladingpage
   - [x] Count url
-  - [ ] Count user (selsai)
-  - [ ] Count click (selsai)
+  - [x] Count user (selsai)
+  - [x] Count click (selsai)
   - [x] Design
 - [ ] User
   - [x] Design registrasi
   - [ ] Logic register (selsai)
   - [ ] Design login (selsai)
-  - [ ] Logic login (selsai)
+  - [ ] Logic login (selsai gw)
   - [ ] Verifikasi email
 - [ ] URL
   - [ ] Design dashboard URL
