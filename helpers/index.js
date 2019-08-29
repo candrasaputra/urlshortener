@@ -16,7 +16,8 @@
 // module.exports = output
 
 const shortLinkGenerator = require('./shortLinkGenerator');
+const hashPassword = require('./hashPassword')
 
 module.exports = {
-    shortLinkGenerator
+    shortLinkGenerator, hashPassword
 };
