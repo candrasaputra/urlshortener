@@ -64,7 +64,7 @@
                                                 <div class="row justify-content-between">
                                                     <div class="col">
                                                         <a href="/l/${el.shortened}" style="text-decoration:none"
-                                                            target="_blank">${el.shortened}</a>
+                                                            target="_blank">pu.rl/l/${el.shortened}</a>
                                                     </div>
                                                     <div class="col" style=" text-align:right">
                                                         ${el.Histories.length} <i class="mdi mdi-chart-areaspline"></i>
@@ -83,11 +83,94 @@
                 <div class="col-sm-8 grid-margin grid-margin-md-0 stretch-card">
                     <div class="card">
                         <div class="card-body">
+                            <% if(selectedDate) { %>
+                            <span><%= dataFormat(selectedDate.updatedAt).toUpperCase() %></span> |
+                            <span class="text-success"><%= session.username.toUpperCase() %></span>
+                            <hr>
+                            <h2><strong><%= selectedDate.title%></strong></h2>
+                            <span><%= selectedDate.full%></span>
+                            <div class="pt-2">
+                                <% selectedDate.Tags.forEach(el => { %>
+                                <button class="btn btn-sm btn-outline-primary p-1">Tag: <%= el.tagName %></button>
+                                <% }) %>
+                            </div>
 
+                            <div class="pt-3 pb-3">
+                                <a href="/l/<%= selectedDate.shortened%>" target="_blank">
+                                    pu.rl/l/<%= selectedDate.shortened%>
+                                </a>
+                            </div>
+                            <hr>
 
-                            sss
+                            <script src="https://code.highcharts.com/highcharts.js"></script>
+                            <script src="https://code.highcharts.com/modules/data.js"></script>
+                            <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
+                            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
+                            <script>
+                                Highcharts.chart('container', {
+                                    chart: {
+                                        type: 'column'
+                                    },
+                                    title: {
+                                        text: 'Total klik perbulan selama tahun 2019'
+                                    },
+                                    xAxis: {
+                                        type: 'category',
+                                        labels: {
+                                            rotation: -45,
+                                            style: {
+                                                fontSize: '13px',
+                                                fontFamily: 'Verdana, sans-serif'
+                                            }
+                                        }
+                                    },
+                                    yAxis: {
+                                        min: 0,
+                                        title: {
+                                            text: 'Banyaknya klik'
+                                        }
+                                    },
+                                    legend: {
+                                        enabled: false
+                                    },
+                                    tooltip: {
+                                        pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+                                    },
+                                    series: [{
+                                        name: 'Population',
+                                        colorByPoint: true,
+                                        data: [
+                                            ['Jan', 24],
+                                            ['Feb', 20],
+                                            ['Mar', 14],
+                                            ['Apr', 13],
+                                            ['Mei', 13],
+                                            ['Jun', 12],
+                                            ['Jul', 12],
+                                            ['Agst', 12],
+                                            ['Sept', 12],
+                                            ['Okt', 11],
+                                            ['Nov', 11],
+                                            ['Des', 11]
+                                        ],
+                                        dataLabels: {
+                                            enabled: true,
+                                            rotation: -90,
+                                            color: '#FFFFFF',
+                                            align: 'right',
+                                            format: '{point.y:.0f}', // one decimal
+                                            y: 10, // 10 pixels down from the top
+                                            style: {
+                                                fontSize: '13px',
+                                                fontFamily: 'Verdana, sans-serif'
+                                            }
+                                        }
+                                    }]
+                                });
+                            </script>
+                            <% } %>
                         </div>
                     </div>
                 </div>
