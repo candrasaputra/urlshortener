@@ -11,9 +11,10 @@ class UserController {
     }
 
     static create(req, res) {
+        console.log(req.body);
         User.create(req.body)
-            .then((create) => {
-                res.redirect(`./user/registerStatus?name=${create.username}`)
+            .then((newUser) => {
+                res.redirect(`/user/successRegister?name=${newUser.username}`)
             }).catch((err) => {
                 res.redirect(`/user/register?err=${err}`)
             });
@@ -39,6 +40,13 @@ class UserController {
         res.render('./users/registerStatus', { name })
     }
 
+    static loginPage(req, res) {
+        res.render('./users/login', { err: req.query.err })
+    }
+
+    static login(req, res) {
+
+    }
 }
 
 module.exports = UserController

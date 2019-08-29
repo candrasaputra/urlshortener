@@ -5,7 +5,7 @@ const { appRoute, FrontPageRoute, UserRoute } = require('./routes');
 const PORT = process.env.PORT || 3000;
 
 
-express.urlencoded({ extended: true })
+app.use(express.urlencoded({ extended: true }))
 
 app.set('view engine', 'ejs');
 

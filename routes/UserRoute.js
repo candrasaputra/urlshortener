@@ -3,9 +3,10 @@ const Router = express.Router()
 
 const { UserController } = require('../controllers')
 
-// Router.get('/sign-in', UserController.register)
-// Router.post('/sign-in', UserController.store)
 Router.get('/register', UserController.register)
 Router.post('/register', UserController.create)
+Router.get('/successRegister', UserController.registerStatus)
+Router.get('/sign-in', UserController.loginPage)
+Router.post('/sign-in', UserController.login)
 
 module.exports = Router
