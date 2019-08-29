@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 
 class FrontPageController {
     static main(req, res) {
-        let promises = [Url.findOne({ attributes: [[Sequelize.fn('count', Sequelize.col('id')), 'total']] }), User.findOne({ attributes: [[Sequelize.fn('count', Sequelize.col('id')), 'total']] }), History.findOne({ attributes: [[Sequelize.fn('count', Sequelize.col('id')), 'total']] })]
+        let promises = [Url.countAll(), User.countAll(), History.countAll()]
 
         Promise.all(promises)
             .then((result) => {
