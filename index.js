@@ -1,13 +1,15 @@
 const express = require('express');
 const session = require('express-session');
 const { Url } = require('./models')
+const useragent = require('express-useragent');
 
 const app = express();
-const { appRoute, FrontPageRoute, UserRoute, dataRoute } = require('./routes');
+const { appRoute, FrontPageRoute, UserRoute, dataRoute, HistoryRoute } = require('./routes');
 
 const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }))
+app.use(useragent.express());
 
 app.locals.generateMD5 = require('./helpers/md5hash')
 
@@ -32,20 +34,6 @@ app.use(function (req, res, next) {
     next();
 })
 
-app.get('/l/:link', (req, res) => {
-    Url.findOne({
-        where: {
-            shortened: req.params.link
-        }
-    })
-        .then((link) => {
-            res.writeHead(301,
-                { Location: link.full }
-            );
-            res.end();
-        });
-})
-
 app.get('/', (req, res) => {
     res.redirect('/home')
 })
@@ -54,5 +42,6 @@ app.use('/home', FrontPageRoute);
 app.use('/app', appRoute);
 app.use('/user', UserRoute);
 app.use('/data', dataRoute);
+app.use('/l', HistoryRoute);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))

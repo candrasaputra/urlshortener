@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     OS: DataTypes.STRING,
     device: DataTypes.STRING,
     UrlId: DataTypes.INTEGER
-  }, { sequelize });
+  }, {
+      sequelize
+    });
   History.associate = function (models) {
     // associations can be defined here
   };
