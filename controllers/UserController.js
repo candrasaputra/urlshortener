@@ -55,10 +55,10 @@ class UserController {
 
                     res.redirect('/app');
                 } else {
-                    res.send('email / password salah');
+                    res.redirect('/user/sign-in?err=username atau password salah');
                 }
             } else {
-                res.send('email / password salah');
+                res.redirect('/user/sign-in?err=username atau password salah');
             }
         }).catch((err) => {
             res.send(err);

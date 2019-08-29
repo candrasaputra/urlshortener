@@ -8,11 +8,12 @@ const PORT = process.env.PORT || 3000;
 
 
 app.use(express.urlencoded({ extended: true }))
+
 app.use(session({
     secret: 'r@h@s1@l!@hh3hsah3h3',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: {}
 }));
 
 app.set('view engine', 'ejs');
