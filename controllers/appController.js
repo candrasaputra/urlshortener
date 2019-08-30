@@ -40,7 +40,8 @@ class appController {
                     session: req.session,
                     selected: req.query.selected,
                     selectedDate: result[1],
-                    history: result[2]
+                    history: result[2],
+                    baseUrl: req.headers.host
                 }
                 res.render('app/template', data);
             }).catch((err) => {
