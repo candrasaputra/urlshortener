@@ -106,6 +106,26 @@
 
                             <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
+                            <h2>History</h2>
+                            <table class="table" id="dsHistory">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Browser</th>
+                                        <th scope="col">OS</th>
+                                        <th scope="col">Device</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% selectedDate.Histories.forEach(el => {%>
+                                    <tr>
+                                        <td><%= el.browser %></td>
+                                        <td><%= el.OS %></td>
+                                        <td><%= el.device %></td>
+                                    </tr>
+                                    <%})%>
+                                </tbody>
+                            </table>
+
                             <script>
                                 function copyStringToClipboard(str) {
                                     // Create new element
