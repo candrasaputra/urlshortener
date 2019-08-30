@@ -110,17 +110,21 @@
                             <table class="table" id="dsHistory">
                                 <thead class="thead-dark">
                                     <tr>
+                                        <th scope="col">ID</th>
                                         <th scope="col">Browser</th>
                                         <th scope="col">OS</th>
                                         <th scope="col">Device</th>
+                                        <th scope="col">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% selectedDate.Histories.forEach(el => {%>
                                     <tr>
+                                        <td><%= el.id %></td>
                                         <td><%= el.browser %></td>
                                         <td><%= el.OS %></td>
                                         <td><%= el.device %></td>
+                                        <td><%= el.getTimeAgo() %></td>
                                     </tr>
                                     <%})%>
                                 </tbody>

@@ -3,7 +3,13 @@ module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
   const Sequelize = require("sequelize");
 
+  const timeAgo = require('../helpers/timeAgo')
+
   class History extends Model {
+    getTimeAgo() {
+      return timeAgo(this.createdAt)
+    }
+
     static countAll() {
       return History.findOne({ attributes: [[Sequelize.fn('count', Sequelize.col('id')), 'total']] })
     }
