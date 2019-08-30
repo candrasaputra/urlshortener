@@ -1,3 +1,9 @@
+/**
+ *
+ *
+ * @param {Date} date - pure date string
+ * @returns (time) ago
+ */
 function timeSince(date) {
 
     date = Date.parse(date)
