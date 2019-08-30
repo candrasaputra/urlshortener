@@ -1,8 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
+  const Sequelize = require("sequelize");
 
-  class History extends Model { }
+  class History extends Model {
+    static countAll() {
+      return History.findOne({ attributes: [[Sequelize.fn('count', Sequelize.col('id')), 'total']] })
+    }
+  }
 
   History.init({
     browser: DataTypes.STRING,

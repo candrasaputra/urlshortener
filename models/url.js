@@ -1,5 +1,6 @@
 'use strict';
 const { shortLinkGenerator } = require('../helpers')
+const Sequelize = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
@@ -11,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
 
     shortFull() {
       return this.full.length > 100 ? this.full.substr(0, 100) + "..." : this.full;
+    }
+
+    static countAll() {
+      return Url.findOne({ attributes: [[Sequelize.fn('count', Sequelize.col('id')), 'total']] })
     }
   }
 

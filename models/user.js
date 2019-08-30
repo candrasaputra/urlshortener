@@ -1,11 +1,17 @@
 'use strict';
 
 const { hashPassword } = require('../helpers');
+const Sequelize = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
     const Model = sequelize.Sequelize.Model
 
-    class User extends Model { }
+    class User extends Model {
+
+        static countAll() {
+            return User.findOne({ attributes: [[Sequelize.fn('count', Sequelize.col('id')), 'total']] })
+        }
+    }
 
     User.init({
         username: {
