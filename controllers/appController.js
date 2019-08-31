@@ -11,7 +11,10 @@ class appController {
                 createdBy: req.session.userId
             },
             order: [['createdAt', 'DESC']],
-            include: [History]
+            include: [{
+                model: History,
+                order: [['createdAt', 'DESC']]
+            }]
         }), Url.findOne({
             where: {
                 id: selected
@@ -33,14 +36,14 @@ class appController {
 
         Promise.all(promises)
             .then((result) => {
-
                 let data = {
                     urls: result[0],
                     page: 'index',
                     session: req.session,
                     selected: req.query.selected,
                     selectedDate: result[1],
-                    history: result[2]
+                    history: result[2],
+                    baseUrl: req.headers.host
                 }
                 res.render('app/template', data);
             }).catch((err) => {
